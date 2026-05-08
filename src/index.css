@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Patrick+Hand&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Gaegu", ui-sans-serif, system-ui, sans-serif;
+  --font-doodle: "Patrick Hand", cursive;
+}
+
+@layer base {
+  body {
+    @apply bg-[#FFF9F5] text-[#4A3B33] overflow-x-hidden;
+  }
+
+  /* Wobbly border effect */
+  .wobbly-border {
+    border: 3px solid #4A3B33;
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  }
+
+  .wobbly-border-sm {
+    border: 2px solid #4A3B33;
+    border-radius: 95% 4% 92% 5% / 4% 95% 6% 95%;
+  }
+
+  /* Rough sketchy shadows */
+  .sketch-shadow {
+    box-shadow: 5px 5px 0px rgba(74, 59, 51, 0.1);
+  }
+
+  /* Hand-drawn button style */
+  .doodle-btn {
+    @apply px-6 py-3 text-xl font-bold transition-transform hover:scale-105 active:scale-95 bg-white;
+    border: 3px solid #4A3B33;
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+    box-shadow: 5px 5px 0px rgba(74, 59, 51, 0.1);
+  }
+}
+
+@keyframes wobble {
+  0%, 100% { transform: rotate(-1deg) scale(1); }
+  50% { transform: rotate(1deg) scale(1.02); }
+}
+
+.animate-wobble {
+  animation: wobble 3s ease-in-out infinite;
+}
+
+@keyframes bounce-subtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.animate-bounce-subtle {
+  animation: bounce-subtle 2s ease-in-out infinite;
+}
+
+/* Stage Light Effects */
+.stage-light {
+  @apply absolute top-0 w-64 h-full opacity-20 pointer-events-none blur-3xl;
+  background: radial-gradient(circle at top, #FFD700, transparent 70%);
+}
